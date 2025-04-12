@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PAYMENT DAVZ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://img1.pixhost.to/images/4968/587040843_ikyystr.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .wrapper {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+      margin-bottom: 30px;
+      font-size: 15px;
+      color: #e0e0e0;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #00e0ff;
+      text-align: center;
+    }
+
+    .qris-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 0 auto 25px;
+      display: block;
+      border-radius: 12px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .qris-img:hover {
+      transform: scale(1.05);
+    }
+
+    .method {
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .method-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #00c3ff;
+    }
+
+    .method-number {
+      font-size: 15px;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .method-name {
+      font-size: 14px;
+      color: #ccc;
+      font-style: italic;
+    }
+
+    .method-number button {
+      background-color: #00c3ff;
+      border: none;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .method-number button:hover {
+      background-color: #009ccc;
+    }
+
+    /* Modal QRIS */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>payment davz</h1>
+    <ul>
+      <li>Payment tersedia di bawah</li>
+      <li>Silakan kirim bukti transfer yang valid ke ADMIN</li>
+    </ul>
+
+    <div class="section-title">QRIS SCAN HERE</div>
+    <img src="https://img1.pixhost.to/images/4967/587034670_ikyystr.jpg" alt="QRIS DAVZ" class="qris-img" onclick="openModal()" />
+
+    <div class="method">
+      <div class="method-title">Dana</div>
+      <div class="method-number">
+        081369712150
+        <button onclick="copyText('081369712150')">Salin</button>
+      </div>
+      <div class="method-name">a.n. E**</div>
+    </div>
+
+    <div class="method">
+      <div class="method-title">GoPay</div>
+      <div class="method-number">
+        081369712150
+        <button onclick="copyText('081369712150')">Salin</button>
+      </div>
+      <div class="method-name">a.n. D***C***</div>
+    </div>
+
+    <div class="method">
+      <div class="method-title">Bank BRI</div>
+      <div class="method-number">
+        KE DAVZ
+        <button onclick="copyText('KE DAVZ')">Salin</button>
+      </div>
+      <div class="method-name">a.n. davz</div>
+    </div>
+  </div>
+
+  <!-- Modal QRIS -->
+  <div id="qrisModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" src="https://img1.pixhost.to/images/4967/587034670_ikyystr.jpg" alt="QRIS Full">
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("qrisModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("qrisModal").style.display = "none";
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(function () {
+        alert("Disalin: " + text);
+      });
+    }
+  </script>
+</body>
+</html>
